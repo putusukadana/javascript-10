@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menggambl data</title>
+</head>
+<body>
+<div class="container">
+    <form name="frm01" id="frm01" method="get" action="terimadata.php" onsubmit="return checkform(this)">
+        Nama <br>
+        <input type="text" name="txnama" class="form-control"><br>
+        Jenis Kelamin <br>
+        <input type="radio" name="txjk" value="laki">laki - laki 
+        <input type="radio" name="txjk" value="perempuan">perempuan <br>
+        Tanggal Lahir <br> 
+        <input type="date" name="txtgllahir"><br>
+        Agama <br>
+        <select name="txagama" id="">
+            <option value="islam">Islam</option>
+            <option value="hindu">Hindu</option>
+            <option value="kristen">Kristen</option>
+            <option value="khatolik">Khatolik</option>
+            <option value="budha">Budha</option>
+        </select><br>
+        hobi <br>
+        <input type="checkbox" name="hobi1">footsal
+        <input type="checkbox" name="hobi2"> Menari
+        <input type="checkbox" name="hobi3"> Renang
+        <br><br>
+        <button name="cmdtombol1" type="submit">Kirim Data</button>
+        <input type="reset" name="cmdtombol2" value="Kosongkan form">
+    </form>
+</div>
+<script>
+    function checkform(form){
+        let frm = form.elements
+        let nama = frm.namedItem("txnama").value
+        let jkel = frm.namedItem("txjk").value
+        let jttgl = frm.namedItem("txtgllahir").value
+        let agama = frm.namedItem("txagama").value
+        let hobi1 = [
+        frm.namedItem("hobi1").checked,
+        frm.namedItem("hobi2").checked,
+        frm.namedItem("hobi3").checked
+                    ]
+        
+
+        console.log(nama)
+        console.log(jkel)
+        console.log(jttgl)
+        console.log(agama)
+        console.log(hobi1)
+
+        return false
+    }
+</script>
+</body>
+</html>

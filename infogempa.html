@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info gempa</title>
+</head>
+<body>
+    <div id="infogempa"><img src="loding.gif" ></div>
+
+    <script>
+        // mengambil data dari luar / menautkan 
+        const json = new XMLHttpRequest()
+        json.open("GET","https://infogempa.ptov.ga/8e289c87c7f90c5f070e63e6be58210f:8703c53419f9c9ae647adcba28f7cff4") 
+        json.send()
+
+        //mengakses data dari luar 
+        json.onload= function(){
+            const myObj = JSON.parse(this.responseText)
+            let tx = myObj ["Infogempa"] ["gempa"]
+            console.log(tx)
+
+             // menampilkan data" yang ingin di ambil 
+            tx = "TGL:"+myObj ["Infogempa"] ["gempa"].Tanggal
+            tx += "<br>Jam:"+myObj ["Infogempa"] ["gempa"].Jam
+            tx += "<br>Wilayah:"+myObj ["Infogempa"] ["gempa"].Wilayah
+            tx += "<br>Potensi:"+myObj ["Infogempa"] ["gempa"].Potensi
+            tx += "<br>Magnitude:"+myObj ["Infogempa"] ["gempa"].Magnitude
+            tx += "<br>Kordinat:"+myObj ["Infogempa"] ["gempa"].Coordinates
+
+            document.getElementById("infogempa").innerHTML = tx
+        }
+    </script>
+</body>
+</html>
